@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 KEYS = {
     'a': 'w',
     'b': 'E',
@@ -67,21 +69,67 @@ KEYS = {
     '!': 'B',
 }
 
-def decypher ():
-    pass
+def cypher(message):
+    words = message.split(' ')
+    cypher_message = []
+
+    for word in words:
+        cypher_word = ''
+        for letter in word:
+            cypher_word += KEYS[letter]
 
 
+        cypher_message.append(cypher_word)
 
-def cypher():
-    pass
+    return ' '.join(cypher_message)
 
 
+def decipher(message):
+    words = message.split(' ')
+    decipher_message = []
 
-while true:
+    for word in words:
+        decipher_word = ''
 
-    command = str(input('''bienvenido, qué deseas hacer?
-    
-    [c]ifrar mensaje
-    [d]escifrar mensaje
-    [s]alir
-    '''))
+        for letter in word:
+
+            for key, value in KEYS.iteritems():
+                if value == letter:
+                    decipher_word += key
+
+        decipher_message.append(decipher_word)
+
+    return ' '.join(decipher_message)
+
+
+def run():
+
+    while True:
+
+        command = str(input('''--- * --- * --- * --- * --- * --- * --- * ---
+
+            Bienvenido a criptografía. ¿Qué deseas hacer?
+
+            [c]ifrar mensaje
+            [d]ecifrar mensaje
+            [s]alir
+        '''))
+
+        if command == 'c':
+            message = str(input('Escribe tu mensaje: '))
+            cypher_message = cypher(message)
+            print(cypher_message)
+        elif command == 'd':
+            message =  str(input('Escribe tu mensaje cifrado: '))
+            decipher_message = decipher(message)
+            print(decipher_message)
+        elif command == 's':
+            print('salir')
+        else:
+            print('¡Comando no encontrado!')
+
+
+if __name__ == '__main__':
+    print('M E N S A J E S  C I F R A D O S')
+    run()
+
