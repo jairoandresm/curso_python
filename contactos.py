@@ -85,9 +85,7 @@ def run():
             name =  str(input('Escribe el nombre del contacto que busca: '))
             contact_book.search(name)
 
-        elif command == 'e':
-            name =  str(input('Escribe el nombre del contacto a eliminar: '))
-
+        
             contact_book.delete(name)
         elif command == 'l':
             
