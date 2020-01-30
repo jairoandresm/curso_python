@@ -6,10 +6,17 @@ def run():
     with open('DATA.json','r') as f:
         datos = f.read()
     objeto = json.loads(datos)
-    print(json.dumps(objeto,indent=4)) #imprime todo el json de forma clara
+    #print(json.dumps(objeto,indent=4)) #imprime todo el json de forma clara
     #print[objeto[1]["ESTRUCTURA"]] forma de acceder a un elemento
 
+
+    a = input(str('Ingrese la norma: '))
+
     
+
+
+
+
 
     
 
