@@ -11,27 +11,32 @@ class Datos:
         self.datos = []
 
     def add(self, nombre, apellido, email):
-        dato = Lama(nombre, apellido, email)
-        self.dato.append(datos)
+        lama = Lama(nombre, apellido, email)
+        self.datos.append(lama)
 
+    def show_all(self):
+        for dato in self.datos:
+            self._print_contact(dato)
 
-def _print_contact(self, datos):
+    def _print_contact(self, lama):
         print('--- * --- * --- * --- * --- * --- * --- * --- * --- ')
-        print('Nombre: {}'.format(dato.nombre))
-        print('Teléfono: {}'.format(dato.apellido))
-        print('Email: {}'.format(dato.email))
+        print('Nombre: {}'.format(lama.nombre))
+        print('Teléfono: {}'.format(lama.apellido))
+        print('Email: {}'.format(lama.email))
         print('--- * --- * --- * --- * --- * --- * --- * --- * --- ')
 
 
 
 def run():
+
+    mis_datos = Datos()
     while True:
         command = str(input('''Bienvenido
         
         Qué deseas hacer??
         
         [r]egistrar Usuario
-        [b]uscar usuario
+        [l]istar contactos
         [s]alir
         
         '''))
@@ -40,11 +45,11 @@ def run():
             nombre =  str(input('Escribe el nombre del contacto: '))
             apellido =  str(input('Escribe el apellido del contacto: '))
             email =  str(input('Escribe el email del contacto: '))
-            
-            dato.add(nombre, apellido, email)
 
-        elif command == 'b':
-            print('ingrese el nombre de la persona que desea buscar: ')
+            mis_datos.add(nombre, apellido, email)
+
+        elif command == 'l':
+            mis_datos.show_all()
         elif command == 's':
             print('Vuelva pronto!! ')
         else:
